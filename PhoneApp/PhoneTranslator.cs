@@ -24,7 +24,7 @@ namespace PhoneApp
                     else
                     {
                         var Index = Letters.IndexOf(c);
-                        if (index >= 0)
+                        if (Index >= 0)
                         {
                             NumericPhoneNumber.Append(Numbers[Index]);
                         }
