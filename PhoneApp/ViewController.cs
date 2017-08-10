@@ -56,5 +56,22 @@ namespace PhoneApp
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
+
+        partial void VerifyButton_TouchUpInside(UIButton sender)
+        {
+            Validate();
+        }
+
+        async void Validate()
+        {
+            var Client = new SALLab05.ServiceClient();
+            var Result = await Client.ValidateAsync("email", "password", this);
+
+            var Alert = UIAlertController.Create("Resultado", $"{Result.Status}\n{Result.FullName}\n{Result.Token}",
+                UIAlertControllerStyle.Alert);
+            Alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
+
+            PresentViewController(Alert, true, null);
+        }
     }
 }
