@@ -19,6 +19,8 @@ namespace PhoneApp
 
             TranslateButton.TouchUpInside += (object sender, EventArgs e) =>
             {
+                PhoneNumberText.ResignFirstResponder();
+
                 var Translator = new PhoneTranslator();
                 TranslatedNumber = Translator.ToNumber(PhoneNumberText.Text);
                 if (string.IsNullOrWhiteSpace(TranslatedNumber))
