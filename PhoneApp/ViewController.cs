@@ -55,6 +55,20 @@ namespace PhoneApp
 
                 PhoneNumbers.Add(TranslatedNumber);
             };
+
+            CallHistoryButton.TouchUpInside += (sender, e) =>
+            {
+                // ¿Puede instanciarse el Controlador con ID "CallHistoryController"?
+                // establecido en el diseñador?
+                if (this.Storyboard.InstantiateViewController("CallHistoryController") is
+                   CallHistoryController Controller)
+                {
+                    // Proporcionar la lista de números telefónicos a CallHistoryControlleer
+                    Controller.PhoneNumbers = PhoneNumbers;
+                    // Coloca al Controlador en la pila de navegación.
+                    this.NavigationController.PushViewController(Controller, true);
+                }
+            };
         }
 
         public override void DidReceiveMemoryWarning()
@@ -78,18 +92,6 @@ namespace PhoneApp
             Alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
 
             PresentViewController(Alert, true, null);
-        }
-
-        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
-        {
-            base.PrepareForSegue(segue, sender);
-
-            // ¿Se desea realizar la transición a CallHistoryController?
-            if (segue.DestinationViewController is CallHistoryController Controller)
-            {
-                // Proporcionar la lista de números telefónicos al CallHistoryController.
-                Controller.PhoneNumbers = PhoneNumbers;
-            }
         }
     }
 }
