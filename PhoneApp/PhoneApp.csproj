@@ -95,6 +95,10 @@
     <Compile Include="PhoneTranslator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="ValidateController.cs" />
+    <Compile Include="ValidateController.designer.cs">
+      <DependentUpon>ValidateController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewController.designer.cs">
@@ -118,6 +122,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="SALLab06">
+      <HintPath>..\..\..\Downloads\Lab06\SALLab06.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />

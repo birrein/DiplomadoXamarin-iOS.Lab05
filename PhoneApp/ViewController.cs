@@ -69,6 +69,16 @@ namespace PhoneApp
                     this.NavigationController.PushViewController(Controller, true);
                 }
             };
+
+            VerifyButton.TouchUpInside += (sender, e) =>
+            {
+				if (this.Storyboard.InstantiateViewController("ValidateController") is
+	                ValidateController Controller)
+				{
+					// Coloca al Controlador en la pila de navegación.
+					this.NavigationController.PushViewController(Controller, true);
+				}
+            };
         }
 
         public override void DidReceiveMemoryWarning()
@@ -79,7 +89,8 @@ namespace PhoneApp
 
         partial void VerifyButton_TouchUpInside(UIButton sender)
         {
-            Validate();
+			//Validate();
+
         }
 
         async void Validate()
